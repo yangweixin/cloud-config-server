@@ -1,3 +1,6 @@
+server:
+  port: 7400
+
 spring:
   application:
     name: cloud-config-server
@@ -7,7 +10,25 @@ spring:
           git:
             uri: git@github.com:yangweixin/config-repo.git
   #          searchPaths: spring_cloud_in_action/config-repo
-            username: young
-            password: 123456
-server:
-  port: 7400
+            basedir: f://config_server_basedir
+          overrides:
+            common-param: overrides
+  security:
+    user:
+      name: young
+      password: 123456
+
+encrypt.key: young
+#encrypt:
+#  key-store:
+#    location: config-server.keystore
+#    alias: config-server
+#    password: 123456
+#    secret: 123456
+
+#服务注册中心
+eureka:
+  client:
+    service-url:
+      defaultZone:
+          http://young:123456@localhost:7000/eureka/
