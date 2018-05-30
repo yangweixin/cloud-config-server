@@ -18,6 +18,13 @@ spring:
       name: young
       password: 123456
 
+  # config rabbit bus
+  rabbitmq:
+    host: 47.106.119.128
+    port: 5672
+    username: young
+    password: 123456
+
 encrypt.key: young
 #encrypt:
 #  key-store:
@@ -32,3 +39,17 @@ eureka:
     service-url:
       defaultZone:
           http://young:123456@localhost:7000/eureka/
+# open actutor endpoints
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+logging:
+  level:
+    root: debug
+
+
+
+
+
